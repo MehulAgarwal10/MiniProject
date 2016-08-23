@@ -17,6 +17,7 @@ public class MyProg {
         mygraph.addEdge(4,2);
         mygraph.addEdge(5,4);
 
+
         mygraph.displayGraph();
         mygraph.BFS(1);
         mygraph.displayGraph();

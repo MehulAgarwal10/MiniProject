@@ -50,7 +50,7 @@ public class Graph {
         for(i=0;i<SIZE;i++)
         {
 
-            System.out.print((i+1) + " ("+graph[i].colour+"), (Parent = "+(graph[i].parent+1)+"), (Distance from source = "+graph[i].d+") :--> ");
+            System.out.print((i+1) + " ("+graph[i].colour+"),"+"\t"+" (Parent = "+(graph[i].parent+1)+"), (Distance from source = "+graph[i].d+") :--> ");
             graph[i].displayList();
         }
     }

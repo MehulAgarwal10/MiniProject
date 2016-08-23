@@ -89,11 +89,11 @@ public class NodeList<E> {
         if(start == null)
             return;
         Node tempNode = start;
-        String tempValue;
+        int tempValue;
         while(tempNode != null)
         {
-            tempValue = tempNode.data.toString();
-            System.out.print(tempValue +"\t");
+            tempValue = (int)tempNode.data;
+            System.out.print((tempValue+1) +"\t");
             tempNode = tempNode.next;
         }
         System.out.println();
