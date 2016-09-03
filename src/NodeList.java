@@ -44,6 +44,14 @@ public class NodeList<E> {
 
     }
 
+    public E peek()
+    {
+        if(start == null)
+            return null;
+        Node<E> temp = start;
+        return temp.data;
+    }
+
     public E remove()
     {
 
