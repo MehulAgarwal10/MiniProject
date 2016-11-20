@@ -14,4 +14,13 @@ Work is being done to add more interactive features to the graph.
 Moreover, after the inital GUI build is ready, we can start work on looking at useful applications of such data-flow algorithms.
 
 The working Java code is in the following path : 
-    src/ArrayGraph.java
+    
+   MiniProject/src/ArrayGraph.java
+    
+The link for downloading the JGraphT library : 
+
+   http://jgrapht.org/
+
+The GitHub link for the JGraphT project : 
+   https://github.com/jgrapht/jgrapht
+   
