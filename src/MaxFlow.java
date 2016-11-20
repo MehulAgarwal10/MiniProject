@@ -51,7 +51,8 @@ class MaxFlow
     int fordFulkerson(int graph[][], int s, int t)
     {
         int u, v;
-
+        Scanner sc = new Scanner(System.in);
+        String temp;
         // Create a residual graph and fill the residual graph
         // with given capacities in the original graph as
         // residual capacities in residual graph
@@ -96,6 +97,8 @@ class MaxFlow
 
             // Add path flow to overall flow
             max_flow += path_flow;
+            System.out.println("Current Flow : " + max_flow);
+            temp = sc.nextLine();
         }
 
         // Return the overall flow
@@ -103,7 +106,7 @@ class MaxFlow
     }
 
     // Driver program to test above functions
-    public static void main (String[] args) throws java.lang.Exception
+    public static void go (String[] args) throws java.lang.Exception
     {
         // Let us create a graph shown in the above example
         int graph[][] =new int[][] {
