@@ -12,3 +12,6 @@ This particular API provides an interactive environment to the user for setting 
 Work is being done to add more interactive features to the graph.
 
 Moreover, after the inital GUI build is ready, we can start work on looking at useful applications of such data-flow algorithms.
+
+The working Java code is in the following path : 
+    src/ArrayGraph.java
