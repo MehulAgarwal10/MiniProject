@@ -3,6 +3,7 @@
 Graph Theory and Network Flow
 
 This project is aimed at examining the working and applications of Network Flow Algorithms, in this case the Ford-Fulkerson Algorithm.
+The Ford-Fulkerson Algorithm is a greedy algorithm which computes the maximum flow in a network.
 
 After having written the code for the algorithm, we have implemented a GUI to demonstrate how the traffic flow occurs.
 The initital state of the graph (nodes and edges), and the residual graphs at the end of each step, are shown in a graphical manner.
@@ -15,6 +16,7 @@ Moreover, after the inital GUI build is ready, we can start work on looking at u
 
 The working Java code is in the following path : 
     MiniProject/src/ArrayGraph.java
+(The JGraphT package will be required to run this code.)
     
 The link for downloading the JGraphT library : 
     http://jgrapht.org/
