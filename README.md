@@ -4,7 +4,7 @@ Graph Theory and Network Flow
 
 This project is aimed at examining the working and applications of Network Flow Algorithms, in this case the Ford-Fulkerson Algorithm.
 
-After having writted the code for the algorithm, we have implemented a GUI to demonstrate how the traffic flow occurs.
+After having written the code for the algorithm, we have implemented a GUI to demonstrate how the traffic flow occurs.
 The initital state of the graph (nodes and edges), and the residual graphs at the end of each step, are shown in a graphical manner.
 The entire code is written in Java. 
 The API used for the graph is the JGraphT API, specifically the MxGraph implemetation.
