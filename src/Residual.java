@@ -4,14 +4,20 @@ import com.mxgraph.view.mxGraph;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
  * Created by mehulagarwal on 17/11/16.
  */
-public class ArrayGraph {
+public class Residual implements ActionListener {
 
+     JButton button;
+    static JLabel textSpace;
+    static JLabel flowLabel;
+    static boolean flag = false;
     static int V;
     static JFrame frame;
     static Object vertices[];
@@ -22,9 +28,26 @@ public class ArrayGraph {
     static int rGraph[][];
     static int flowGraph[][];
     static LinkedList<Object> edgeList = new LinkedList<>();
-    public static void main2(String args[])
+    public static void main(String args[])
     {
+        Residual rs = new Residual();
+        rs.go();
+    }
 
+    public void actionPerformed(ActionEvent event)
+    {
+        System.out.println("Button pressed ! ");
+        flag = true;
+    }
+    public void go()
+    {
+        button = new JButton("Next");
+        button.addActionListener(this);
+        button.setSize(100,100);
+        textSpace = new JLabel();
+        textSpace.setSize(100,50);
+        flowLabel = new JLabel();
+        flowLabel.setSize(100,100);
         Scanner sc = new Scanner(System.in);
         String str;
         System.out.println("Enter number of vertices : ");
@@ -38,8 +61,12 @@ public class ArrayGraph {
         mxgraph= new mxGraph();
         mxGraphComponent graphComponent= new mxGraphComponent(mxgraph);
         mxDefaultParent = mxgraph.getDefaultParent();
+        //JButton button = new JButton("Next");
 
         frame.add(graphComponent, BorderLayout.CENTER);
+        frame.add(button, BorderLayout.SOUTH);
+        frame.add(textSpace, BorderLayout.NORTH);
+        frame.add(flowLabel, BorderLayout.EAST);
         frame.setVisible(true);
         int i;
         double x = 150.00;
@@ -76,9 +103,29 @@ public class ArrayGraph {
 
 
         }
+        flag = false;
         sc.nextLine();
-        System.out.println("Press enter to map edges .. ");
-        str = sc.nextLine();
+        textSpace.setText("Press the button to map edges");
+        System.out.println("Press the button to map edges .. ");
+        while(true)
+        {
+            // Do Nothing
+            try
+            {
+                //System.out.println("Waiting...");
+                Thread.sleep(1000);
+            }
+            catch(InterruptedException e)
+            {
+                System.out.println("Exiting ");
+            }
+            if(flag == true)
+            {
+                //System.out.println("Done Waiting.. ");
+                break;
+            }
+        }
+        //str = sc.nextLine();
         graph =new int[][] {
                 {0, 9, 9, 0, 0, 0},
                 {0, 0, 10, 8, 0, 0},
@@ -167,8 +214,29 @@ public class ArrayGraph {
                 }
             }
             createMap();
+            //System.out.println("Hello is there anybody ");
             String str;
-            str = sc.nextLine();
+            //str = sc.nextLine();
+            flag = false;
+            while(true)
+            {
+                // Do Nothing
+                try
+                {
+                    //System.out.println("Waiting...");
+                    Thread.sleep(1000);
+                }
+                catch(InterruptedException e)
+                {
+                    System.out.println("Exiting ");
+                }
+                if(flag == true)
+                {
+                    //System.out.println("Done Waiting.. ");
+                    break;
+                }
+            }
+            flag = false;
             // Find minimum residual capacity of the edhes
             // along the path filled by BFS. Or we can say
             // find the maximum flow through the path found.
@@ -190,6 +258,7 @@ public class ArrayGraph {
 
             // Add path flow to overall flow
             max_flow += path_flow;
+            flowLabel.setText("Current Flow : " + max_flow);
             System.out.println("Current Flow : " + max_flow);
             //temp = sc.nextLine();
         }
@@ -216,23 +285,24 @@ public class ArrayGraph {
             mxgraph.getModel().endUpdate();
         }
         edgeList.clear();
+        textSpace.setText("Beginning Mapping");
         System.out.println("Beginning mapping ");
         Scanner sc = new Scanner(System.in);
-        String wait = sc.nextLine();
+        //String wait = sc.nextLine();
         int value;
         for(j=0;j<V;j++)
         {
             for(i=0;i<V;i++)
             {
-                if(flowGraph[i][j] > 0)
+                if(rGraph[i][j] > 0)
                 {
-                    if(flowGraph[j][i] > flowGraph[i][j])
+                    if(rGraph[j][i] > rGraph[i][j])
                     {
                         continue;
                     }
                     else
                     {
-                        value = flowGraph[i][j] - flowGraph[j][i];
+                        value = rGraph[i][j] - rGraph[j][i];
                     }
                     mxgraph.getModel().beginUpdate();
                     try
