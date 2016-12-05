@@ -1,5 +1,7 @@
 # MiniProject
 
+(Note: This is not the project report documentation. This is just a brief description of our project, and the code we have written. The documentation is provided seperately.)
+
 Graph Theory and Network Flow
 
 This project is aimed at examining the working and applications of Network Flow Algorithms, in this case the Ford-Fulkerson Algorithm.
